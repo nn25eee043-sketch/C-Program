@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+void multiplyMatrix(int m, int n, int r2, int q, int A[10][10], int B[10][10], int result[10][10])
+{
+    int i, j, k;
+
+    for(i = 0; i < m; i++)
+    {
+        for(j = 0; j < q; j++)
+        {
+            result[i][j] = 0;
+        }
+    }
+
+    for(i = 0; i < m; i++)
+    {
+        for(j = 0; j < q; j++)
+        {
+            for(k = 0; k < n; k++)
+            {
+                result[i][j] = result[i][j] + A[i][k] * B[k][j];
+            }
+        }
+    }
+}
+
+int main()
+{
+    int A[10][10], B[10][10], result[10][10];
+    int m, n, r2, q;
+    int i, j;
+
+    printf("Enter rows and columns of first matrix: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter rows and columns of second matrix: ");
+    scanf("%d %d", &r2, &q);
+
+    if(n != r2)
+    {
+        printf("Matrix multiplication is not possible");
+        return 0;
+    }
+
+    printf("Enter elements of first matrix:\n");
+    for(i = 0; i < m; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    printf("Enter elements of second matrix:\n");
+    for(i = 0; i < r2; i++)
+    {
+        for(j = 0; j < q; j++)
+        {
+            scanf("%d", &B[i][j]);
+        }
+    }
+
+    multiplyMatrix(m, n, r2, q, A, B, result);
+
+    printf("Resultant Matrix:\n");
+    for(i = 0; i < m; i++)
+    {
+        for(j = 0; j < q; j++)
+        {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
