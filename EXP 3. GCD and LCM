@@ -1,0 +1,22 @@
+//Name: Manvith U M, USN: NN25EEE043, 2nd sem, V section
+// EXP no.3, C programming code to find GCD and LCM of two integers.
+#include<stdio.h>
+int main()
+{
+    int m, n, x, y, rem, gcd, lcm;
+    printf("Enter two Numbers : ");
+    scanf("%d %d", &m,&n);
+    x=m;
+    y=n;
+    while (y!=0)
+    {
+        rem=y;
+        y=x%y;
+        x=rem;
+    }
+    gcd=x;
+    lcm=(m*n)/gcd;
+    printf("GCD = %d\n", gcd);
+    printf("LCM = %d\n", lcm);
+    return 0;
+}
